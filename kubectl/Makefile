@@ -118,3 +118,15 @@ d-log:
 	kubectl delete -f logging/elasticsearch.yaml
 	@sleep 10
 	kubectl get pod,service,deployment
+
+.PHONY: a-affinity
+a-affinity:
+	kubectl apply -f manifest/pod-affinity-deployment.yaml
+	@sleep 10
+	kubectl get pod
+
+.PHONY: d-affinity
+d-affinity:
+	kubectl delete -f manifest/pod-affinity-deployment.yaml
+	@sleep 10
+	kubectl get pod
